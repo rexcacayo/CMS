@@ -1,0 +1,50 @@
+<div class="card mb-3">
+    <div class="card-header">
+        <i class="fa fa-clock-o" aria-hidden="true"></i> Working Hours Store
+        <i class="fa fa-plus-circle fa-plus-circle-add" aria-hidden="true" [routerLink] = "['hourAdd']"></i>
+    </div>
+    <div class="card-block">
+        <form [formGroup]="appointmentsDurationForm" (ngSubmit)="saveAppointmentsDuration()" novalidate>
+            <div class="form-group row">
+                <label for="example-text-input" class="col-2 col-form-label">Appointments Duration</label>
+                <div class="col-9">
+                    <select [(ngModel)]="store.appointmentsDuration" class="form-control form-control-lg" formControlName="duration">
+                        <option value="10">10 min</option>
+                        <option value="20">20 min</option>
+                        <option value="30">30 min</option>
+                        <option value="40">40 min</option>
+                        <option value="50">50 min</option>
+                        <option value="1">1 hour</option>
+                        <option value="2">2 hours</option>
+                    </select>
+                </div>
+                <div class="col-1">
+                    <button type="submit" [disabled]="appointmentsDurationForm.invalid" class="btn btn-outline-info">Save</button>
+                </div>
+            </div>
+        </form>
+        <table class="table table-bordered" width="100%" id="dataTable" cellspacing="0">    
+            <thead>
+                <tr>
+                    <th>Day</th>
+                    <th>Hour</th>
+                    <th>Option</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of hours">
+                    <td>{{item.day}}</td>
+                    <td>{{item.timeStartMorning}}-{{item.timeEndMorning}}/{{item.timeStartAfternoon}}-{{item.timeEndAfternoon}}</td>
+                    <td>
+                        <a (click)="edit(item)" class="col"><i class="fa fa-pencil fa-table-link" aria-hidden="true"></i></a>
+                        <!-- <a class="col"><i class="fa fa-ban fa-table-link" aria-hidden="true"></i></a> -->
+                    </td>
+                </tr>                        
+            </tbody>
+        </table>       
+    </div>
+    <!-- <div class="col-10">
+        <button type="button" class="btn btn-outline-info" onclick="add_hours()">Add</button>
+    </div> -->
+    <br>
+</div>

@@ -1,0 +1,71 @@
+/*estilos para app compomnetes**/
+.footer{
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+}
+
+.flex-container {
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-flex-wrap: nowrap;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+    -webkit-justify-content: flex-start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+    -webkit-align-content: stretch;
+    -ms-flex-line-pack: stretch;
+    align-content: stretch;
+}
+
+.flex-item {
+  -webkit-order: 0;
+  -ms-flex-order: 0;
+  order: 0;
+  -webkit-flex: 0 1 auto;
+  -ms-flex: 0 1 auto;
+  flex: 0 1 auto;
+  -webkit-align-self: auto;
+  -ms-flex-item-align: auto;
+  align-self: auto;
+}
+
+.barra{
+  width: 15%;
+
+
+}
+.margen{
+  padding-left: 15px;
+}
+
+.cuerpo{
+  width:85%;
+}
+.items_cuerpo{
+  width: 97%;
+  margin-left: 16px;
+  margin-top: 10px;
+
+}
+
+ul li ul li > a {
+  color: #c9caca !important;
+
+}
+
+a:hover{
+  color:  white !important;
+  text-decoration: none !important;
+}
+
+a:active{
+  color: white !important;
+  text-decoration: none !important;
+}
+/**final app components**/

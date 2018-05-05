@@ -1,0 +1,37 @@
+<div class="card mb-3">
+    <div class="card-header">
+        <i class="fa fa-plus-circle" aria-hidden="true"></i> Add Employee Store
+    </div>
+    <form [formGroup]="employeeForm" novalidate>
+        <div class="card-block">
+            <div class="form-group row">
+                <label for="employee-text-input" class="col-2 col-form-label">Employee</label>
+                <div class="col-10">
+                    <input [(ngModel)]="employee.name" class="form-control" type="text" id="employee-text-input" formControlName="name">
+                </div>
+                <div *ngIf="employeeForm.get('name').errors && employeeForm.get('name').dirty">
+                    <span style="color:red" *ngIf="employeeForm.get('name').hasError('required')">Employee is required</span>
+                    <span style="color:red" *ngIf="employeeForm.get('name').hasError('maxlength')">Too large</span>
+                </div>
+            </div>
+        </div>
+    </form>
+    <table class="table table-bordered" width="100%" id="dataTable" cellspacing="0">    
+        <thead>
+            <tr>
+                <th>Assign Services to Employee</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of services">
+                <td>
+                    <input [(ngModel)]="item.isChecked" [checked]="item.isChecked" type="checkbox" name="service" (change)="asignarService(item)">
+                    {{item.name}}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="col-10">
+        <button type="button" (click)="add()" [disabled]="employeeForm.invalid" class="btn btn-outline-info">Add</button>
+    </div>
+</div>

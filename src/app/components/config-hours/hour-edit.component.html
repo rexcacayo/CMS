@@ -1,0 +1,65 @@
+<div class="card mb-3">
+    <div class="card-header">
+        <i class="fa fa-plus-circle" aria-hidden="true"></i> Edit Hours Store
+    </div>
+    <form [formGroup]="hourForm" (ngSubmit)="edit()" novalidate>
+        <div class="card-block">
+            <div class="form-group row">
+                <label for="example-date-input" class="col-2 col-form-label">Day</label>
+                <div class="col-10">
+                    <select [(ngModel)]="hour.day" class="form-control form-control-lg" formControlName="day">
+                        <option value="Sunday">Sunday</option>
+                        <option value="Monday">Monday</option>
+                        <option value="Tuesday">Tuesday</option>
+                        <option value="Wednesday">Wednesday</option>
+                        <option value="Thursday">Thursday</option>
+                        <option value="Friday">Friday</option>
+                        <option value="Saturday">Saturday</option>
+                    </select>
+                </div>
+                <div *ngIf="hourForm.get('day').errors && hourForm.get('day').dirty">
+                    <span style="color:red" *ngIf="hourForm.get('name').hasError('required')">Day is required</span>
+                </div>
+            </div>        
+            <div class="form-group row">
+                <label for="example-time-input" class="col-2 col-form-label">Time Start Morning</label>
+                <div class="col-10">
+                    <input [(ngModel)]="hour.timeStartMorning" class="form-control" type="time" id="example-time-input" formControlName="timeStartMorning">
+                </div>
+                <div *ngIf="hourForm.get('timeStartMorning').errors && hourForm.get('timeStartMorning').dirty">
+                    <span style="color:red" *ngIf="hourForm.get('timeStartMorning').hasError('required')">Time Start Morning is required</span>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="example-time-input" class="col-2 col-form-label">Time End Morning</label>
+                <div class="col-10">
+                    <input [(ngModel)]="hour.timeEndMorning" class="form-control" type="time" id="example-time-input" formControlName="timeEndMorning">
+                </div>
+                <div *ngIf="hourForm.get('timeEndMorning').errors && hourForm.get('timeEndMorning').dirty">
+                    <span style="color:red" *ngIf="hourForm.get('timeEndMorning').hasError('required')">Time End Morning is required</span>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="example-time-input" class="col-2 col-form-label">Time Start Afternoon</label>
+                <div class="col-10">
+                    <input [(ngModel)]="hour.timeStartAfternoon" class="form-control" type="time" id="example-time-input" formControlName="timeStartAfternoon">
+                </div>
+                <div *ngIf="hourForm.get('timeStartAfternoon').errors && hourForm.get('timeStartAfternoon').dirty">
+                    <span style="color:red" *ngIf="hourForm.get('timeStartAfternoon').hasError('required')">>Time Start Afternoon is required</span>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="example-time-input" class="col-2 col-form-label">Time End Afternoon</label>
+                <div class="col-10">
+                    <input [(ngModel)]="hour.timeEndAfternoon" class="form-control" type="time" id="example-time-input" formControlName="timeEndAfternoon">
+                </div>
+                <div *ngIf="hourForm.get('timeEndAfternoon').errors && hourForm.get('timeEndAfternoon').dirty">
+                    <span style="color:red" *ngIf="hourForm.get('timeEndAfternoon').hasError('required')">>Time End Afternoon is required</span>
+                </div>
+            </div>
+        </div>
+        <div class="col-10">
+            <button type="submit" [disabled]="hourForm.invalid" class="btn btn-outline-info">Update</button>
+        </div>
+    </form>
+</div>

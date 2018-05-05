@@ -1,0 +1,29 @@
+<div class="card mb-3">
+    <div class="card-header">
+        <i class="fa fa-table"></i> Appointments Today
+    </div>
+    <div class="card-block">
+        <div class="table-responsive">
+            <table class="table table-bordered" width="100%" id="dataTable" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Service</th>
+                        <th>Employee</th>
+                        <th>Day</th>
+                        <th>Hour</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of appointments">
+                        <td>{{item.name}}</td>
+                        <td>{{item.service.name}}</td>
+                        <td>{{item.employee.name}}</td>
+                        <td>{{item.day}}</td>
+                        <td>{{item.hour}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

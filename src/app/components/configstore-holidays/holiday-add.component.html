@@ -1,0 +1,30 @@
+<div class="card mb-3">
+    <div class="card-header">
+        <i class="fa fa-plus-circle" aria-hidden="true"></i> Add Holidays Store
+    </div>
+    <form [formGroup]="holidayForm" (ngSubmit)="add()" novalidate>
+        <div class="card-block">
+            <div class="form-group row">
+                <label for="example-date-input" class="col-2 col-form-label">Date</label>
+                <div class="col-10">
+                    <input [(ngModel)]="holiday.date" displayFormat="DDD, MMM DD, YYYY" class="form-control" type="date" id="example-time-input" formControlName="date">
+                </div>
+                <div *ngIf="holidayForm.get('date').errors && holidayForm.get('date').dirty">
+                    <span style="color:red" *ngIf="holidayForm.get('date').hasError('required')">Date is required</span>
+                </div>
+            </div>        
+            <div class="form-group row">
+                <label for="example-date-input" class="col-2 col-form-label">Description</label>
+                <div class="col-10">
+                    <input [(ngModel)]="holiday.description" class="form-control" type="text" id="example-time-input" formControlName="description">
+                </div>
+                <div *ngIf="holidayForm.get('description').errors && holidayForm.get('description').dirty">
+                    <span style="color:red" *ngIf="holidayForm.get('description').hasError('required')">Description is required</span>
+                </div>
+            </div>        
+        </div>
+        <div class="col-10">
+            <button type="submit" [disabled]="holidayForm.invalid" class="btn btn-outline-info">Add</button>
+        </div>
+    </form>
+</div>

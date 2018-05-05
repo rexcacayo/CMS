@@ -1,0 +1,37 @@
+<div class="card mb-3">
+    <div class="card-header">
+        <i class="fa fa-pencil" aria-hidden="true"></i> Edit Service Store
+    </div>
+    <form [formGroup]="serviceForm" novalidate>
+        <div class="card-block">
+            <div class="form-group row">
+                <label for="service-text-input" class="col-2 col-form-label">Service</label>
+                <div class="col-10">
+                    <input [(ngModel)]="service.name" class="form-control" type="text" id="service-text-input" formControlName="name">
+                </div>
+                <div *ngIf="serviceForm.get('name').errors && serviceForm.get('name').dirty">
+                    <span style="color:red" *ngIf="serviceForm.get('name').hasError('required')">Service is required</span>
+                    <span style="color:red" *ngIf="serviceForm.get('name').hasError('maxlength')">Too large</span>
+                </div>
+            </div>
+        </div>
+    </form>
+    <table class="table table-bordered" width="100%" id="dataTable" cellspacing="0">    
+        <thead>
+            <tr>
+                <th>Assign Employees to Service</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of employees">
+                <td>
+                    <input [(ngModel)]="item.isChecked" [checked]="item.isChecked" type="checkbox" name="employee" (change)="asignarEmployee(item)">
+                    {{item.name}}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="col-10">
+        <button type="button" (click)="edit()" [disabled]="serviceForm.invalid" class="btn btn-outline-info">Update</button>
+    </div>
+</div>

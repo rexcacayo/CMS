@@ -1,0 +1,74 @@
+<div class="card mb-3">
+    <div class="card-header">
+        <i class="fa fa-info-circle"></i> Info Store
+    </div>
+    <form [formGroup]="storeInfoForm" (ngSubmit)="save()" novalidate>
+        <div class="card-block">
+            <div class="form-group row">
+                <label for="example-text-input" class="col-2 col-form-label">Store</label>
+                <div class="col-10">
+                    <input [(ngModel)]="store.name" class="form-control" type="text" id="example-text-input" formControlName="name">
+                    <div *ngIf="storeInfoForm.get('name').errors && storeInfoForm.get('name').dirty">
+                        <span style="color:red" *ngIf="storeInfoForm.get('name').hasError('required')">Name of Store is required</span>
+                        <span style="color:red" *ngIf="storeInfoForm.get('name').hasError('maxlength')">Too large</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="example-email-input" class="col-2 col-form-label">Email</label>
+                <div class="col-10">
+                    <input [(ngModel)]="store.email" class="form-control" type="email" id="example-email-input" formControlName="email">
+                    <div *ngIf="storeInfoForm.get('email').errors && storeInfoForm.get('email').dirty">
+                        <span style="color:red" *ngIf="storeInfoForm.get('email').hasError('required')">Email is required</span>
+                        <span style="color:red" *ngIf="storeInfoForm.get('email').hasError('maxlength')">Too large</span>
+                        <span style="color:red" *ngIf="storeInfoForm.get('email').hasError('email')">You must enter an email</span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="example-url-input" class="col-2 col-form-label">URL SITE</label>
+                <div class="col-10">
+                    <input [(ngModel)]="store.url" class="form-control" type="url" id="example-url-input" formControlName="url">
+                    <div *ngIf="storeInfoForm.get('url').errors && storeInfoForm.get('url').dirty">
+                        <span style="color:red" *ngIf="storeInfoForm.get('url').hasError('required')">Url is required</span>
+                        <span style="color:red" *ngIf="storeInfoForm.get('url').hasError('maxlength')">Too large</span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="example-tel-input" class="col-2 col-form-label">Telephone</label>
+                <div class="col-10">
+                    <input [(ngModel)]="store.telephone1" class="form-control" type="tel" id="example-tel-input" formControlName="telephone1">
+                    <div *ngIf="storeInfoForm.get('telephone1').errors && storeInfoForm.get('telephone1').dirty">
+                        <span style="color:red" *ngIf="storeInfoForm.get('telephone1').hasError('required')">Telephone is required</span>
+                        <span style="color:red" *ngIf="storeInfoForm.get('telephone1').hasError('maxlength')">Too large</span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="example-tel-input" class="col-2 col-form-label">Other Telephone</label>
+                <div class="col-10">
+                    <input [(ngModel)]="store.telephone2" class="form-control" type="tel" id="example-text-input" formControlName="telephone2">
+                    <div *ngIf="storeInfoForm.get('telephone2').errors && storeInfoForm.get('telephone2').dirty">
+                        <span style="color:red" *ngIf="storeInfoForm.get('telephone1').hasError('maxlength')">Too large</span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="example-tel-input" class="col-2 col-form-label">Locate</label>
+                <div class="col-lg-6">
+                    <div class="input-group">
+                        <span class="input-group-btn">
+                            <button class="btn btn-secondary" type="button" onclick="locate()">Google Maps</button>
+                        </span>
+                        <input [(ngModel)]="store.locate" class="form-control" type="text" id="example-tel-input" formControlName="locate">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-10">
+            <button type="submit" [disabled]="storeInfoForm.invalid" class="btn btn-outline-info">Save</button>
+        </div>
+    </form>
+</div>

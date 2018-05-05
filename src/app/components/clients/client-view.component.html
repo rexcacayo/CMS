@@ -1,0 +1,72 @@
+<div class="card mb-3">
+                <div class="card-header">
+                    <i class="fa fa-table"></i> Client Table
+                </div>
+                <div class="card-block">
+                    <div class="table-responsive">
+                        <table class="table table-bordered" width="100%" id="dataTable" cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Age</th>
+                                    <th>Birthday</th>
+                                    <th>Email</th>
+                                    <th>Male / Woman</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>{{client.name}}</td>
+                                    <td>{{client.age}}</td>
+                                    <td>{{client.birthday}}</td>
+                                    <td>{{client.email}}</td>
+                                    <td *ngIf="client.isMale"><i class="fa fa-male" aria-hidden="true"></i></td>
+                                    <td *ngIf="!client.isMale"><i class="fa fa-female" aria-hidden="true"></i></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                
+            </div>
+        <!--table detail client-->
+        <div class="card mb-3">
+                <div class="card-header">
+                    <i class="fa fa-table"></i> Client Service Table
+                </div>
+                <div class="card-block">
+                    <div class="table-responsive">
+                        <table class="table table-bordered" width="100%" id="dataTable" cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <th>Service</th>
+                                    <th>Employee</th>
+                                    <th>Date</th>
+                                    <th>Pay</th>
+                                    
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Web Page</td>
+                                    <td>Pedro</td>
+                                    <td>2011/04/25</td>
+                                    <td>1,000.00$</td>
+                                    
+                                    
+                                </tr>
+                                <tr>
+                                    <td>Design</td>
+                                    <td>Pedro</td>
+                                    <td>2011/01/25</td>
+                                    <td>100.00$</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="col">
+                            Total  1,100.00$
+                        </div>    
+                    </div>
+                </div>
+                
+            </div>

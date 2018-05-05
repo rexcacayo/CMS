@@ -1,0 +1,21 @@
+.fa-plus-circle-add{
+	position:absolute;
+	right: 20px;
+	top:15px;
+	color:#0275d8;
+}
+
+.fa-plus-circle-add:hover, .fa-table-link:hover{
+	cursor: pointer;
+	opacity: 0.7;
+}
+
+.fa-table-link{
+	color:#0275d8;
+}
+
+@media (min-width:1200px) {
+	.container-fluid {
+    	height: 89vh ;
+	}
+}

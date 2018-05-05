@@ -1,0 +1,32 @@
+<div class="card mb-3">
+    <div class="card-header">
+        <i class="fa fa-table"></i> Client Table
+    </div>
+    <div class="card-block">
+        <div class="table-responsive">
+            <table class="table table-bordered" width="100%" id="dataTable" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Age</th>
+                        <th>Birthday</th>
+                        <th>Email</th>
+                        <th>Male / Woman</th>
+                        <th>Options</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of clients">
+                        <td>{{item.name}}</td>
+                        <td>{{item.age}}</td>
+                        <td>{{item.birthday}}</td>
+                        <td>{{item.email}}</td>
+                        <td *ngIf="item.isMale"><i class="fa fa-male" aria-hidden="true"></i></td>
+                        <td *ngIf="!item.isMale"><i class="fa fa-female" aria-hidden="true"></i></td>
+                        <td><a (click)="view(item)" class="col"><i class="fa fa-eye fa-table-link" aria-hidden="true"></i></a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
